@@ -24,13 +24,14 @@
             :title="social.name"
             class="social-link"
           >
-            <v-icon
-              :color="social.color"
-              :icon="social.icon"
-              size="large"
-            ></v-icon>
+            <span
+              :style="{ color: social.color }"
+              :class="['mdi', social.icon]"
+            ></span>
           </a>
-          <div class="social-description">{{ social.name }}</div>
+          <div class="social-description">
+            {{ social.name }}
+          </div>
         </v-col>
       </v-row>
     </div>
@@ -39,7 +40,11 @@
 
 <script setup>
 import { ref } from "vue";
-
+// definePage({
+//   meta: {
+//     title: " تواصل معنا ",
+//   },
+// });
 const socials = ref([
   {
     name: "Facebook",
@@ -146,9 +151,7 @@ const socials = ref([
   // border-radius: 50%;
   // background-color: #f0f0f0;
   // padding: 10px;
-  &:hover {
-    background-color: #ddd;
-  }
+
   .mdi {
     font-size: 5rem !important;
   }
